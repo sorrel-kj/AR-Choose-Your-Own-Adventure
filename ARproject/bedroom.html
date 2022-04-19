@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>MindAR.js: Bedroom </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+        
+</head>
+<body>
+    <a-scene
+        mindar-image="imageTargetSrc: bedroom/bedroom.mind;"
+        vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-camera position="0 0 0" look-controls="enabled: false" cursor="rayOrigin: mouse;"
+            raycaster="far: ${customFields.libVersion}; objects: .interactive"></a-camera>
+        <a-entity mindar-image-target="targetIndex: 0">
+          <a-entity id="start" scale=".5 .5 .5" geometry="primitive: plane;"
+          material="src: bedroom/bedroomprompt.PNG;" position="0 0 0">
+      </a-entity>
+            <a-entity position="0 -0.4 0">
+                <a-entity id="door5op1" class="interactive" scale="0.3 0.3 0.3" geometry="primitive: plane;"
+                    material="src: bedroom/letthemsleep.png; transparent: true" position="-0.25 0 0">
+                </a-entity>
+          <a-entity id="door5op2" class="interactive" scale="0.3 0.3 0.3" geometry="primitive: plane;"
+              material="src: bedroom/wakethemup.png; transparent: true" position="0.25 0 0">
+          </a-entity>
+  </a-entity>
+    </a-scene>
+</body>
+<script>
+      var logo2 = document.querySelector("#door5op1");
+  
+  logo2.addEventListener('click', () => {
+
+      window.location.href="openroom.html";
+  });
+  var logo2 = document.querySelector("#door5op2");
+  
+  logo2.addEventListener('click', () => {
+
+    window.location.href="wakethemup.html";
+  });
+</script>
+
+</html>
